@@ -47,6 +47,7 @@ return packer.startup(function(use)
 	use({ "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" }) -- Have packer manage itself
 	use({ "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" }) -- Useful lua functions used by lots of plugins
 	use({ "windwp/nvim-autopairs", commit = "6b6e35fc9aca1030a74cc022220bc22ea6c5daf4" }) -- Autopairs, integrates with both cmp and treesitter
+	use({ "windwp/nvim-ts-autotag", commit = "fdefe46c6807441460f11f11a167a2baf8e4534b" })
 	use({ "numToStr/Comment.nvim", commit = "ad7ffa8ed2279f1c8a90212c7d3851f9b783a3d6" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "32d9627123321db65a4f158b72b757bcaef1a3f4" })
 	use({ "kyazdani42/nvim-web-devicons", commit = "520776f30a3b39ed56402bffbdae57549e778b40" })
@@ -59,7 +60,7 @@ return packer.startup(function(use)
 	use({ "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" })
 	use({ "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" })
 	use({ "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" })
-	use({ "christoomey/vim-tmux-navigator" })
+	use({ "christoomey/vim-tmux-navigator", commit = "c2dab181185101070b0ad6c33451f4e2f56a446a" })
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim", commit = "ec144d94a8dbd9c8b4f5e50d933d67a37f589ed8" })
