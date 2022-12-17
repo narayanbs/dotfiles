@@ -63,8 +63,9 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim", commit = "ec144d94a8dbd9c8b4f5e50d933d67a37f589ed8" })
-	use({ "lunarvim/darkplus.nvim", commit = "d308e9538f0e50cc3e80afc4ed904ab8b8e10fe6" })
 	use({ "rmehri01/onenord.nvim", commit = "0cd9f681bee019715bfbe928891579a3af3331e8" })
+	use({ "Shatur/neovim-ayu" })
+	use({ "EdenEast/nightfox.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "c53dd36adcf512611fa7c523fced55447bfdbfa5" }) -- The completion plugin
