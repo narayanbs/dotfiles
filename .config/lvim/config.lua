@@ -8,6 +8,10 @@ an executable
 ]]
 -- my options file
 require("narayan.options")
+require("kanagawa").setup({
+	keywordStyle = { italic = false },
+	variablebuiltinStyle = { italic = false },
+})
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
 lvim.log.level = "warn"
