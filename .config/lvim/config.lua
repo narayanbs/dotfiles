@@ -157,7 +157,7 @@ formatters.setup({
 		-- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
 		extra_args = { "--print-with", "100" },
 		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-		filetypes = { "typescript", "typescriptreact" },
+		-- filetypes = { "typescript", "typescriptreact" },
 	},
 	{ command = "gofmt", filetypes = { "go" } },
 	{ command = "clang_format", filetypes = { "c", "cpp" } },
