@@ -6,13 +6,20 @@ filled in as strings with either
 a global executable or a path to
 an executable
 ]]
+-- my options file
+require("narayan.options")
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
--- lvim.colorscheme = "ayu-mirage"
-lvim.colorscheme = "onedark"
+
+lvim.colorscheme = "kanagawa"
+-- lvim.colorscheme = "tokyonight-moon"
+-- lvim.colorscheme = "nightfox"
+-- lvim.colorscheme = "onedark"
+-- lvim.colorscheme = "onenord"
+-- lvim.transparent_window = true
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -157,7 +164,6 @@ formatters.setup({
 		-- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
 		extra_args = { "--print-with", "100" },
 		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-		-- filetypes = { "typescript", "typescriptreact" },
 	},
 	{ command = "gofmt", filetypes = { "go" } },
 	{ command = "clang_format", filetypes = { "c", "cpp" } },
@@ -185,10 +191,10 @@ linters.setup({
 -- Additional Plugins
 lvim.plugins = {
 	{
-		"Shatur/neovim-ayu",
-		"rmehri01/onenord.nvim",
 		"EdenEast/nightfox.nvim",
 		"navarasu/onedark.nvim",
+		"rebelot/kanagawa.nvim",
+		"rmehri01/onenord.nvim",
 		-- "folke/trouble.nvim",
 		-- cmd = "TroubleToggle",
 	},
