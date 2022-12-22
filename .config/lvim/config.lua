@@ -197,8 +197,9 @@ lvim.plugins = {
 	{
 		"EdenEast/nightfox.nvim",
 		"navarasu/onedark.nvim",
-		"rebelot/kanagawa.nvim",
+		"narayanbs/kanagawa.nvim",
 		"rmehri01/onenord.nvim",
+		--"rebelot/kanagawa.nvim",
 		-- "folke/trouble.nvim",
 		-- cmd = "TroubleToggle",
 	},
