@@ -66,6 +66,7 @@ return packer.startup(function(use)
 	use({ "rmehri01/onenord.nvim", commit = "0cd9f681bee019715bfbe928891579a3af3331e8" })
 	use({ "Shatur/neovim-ayu" })
 	use({ "EdenEast/nightfox.nvim" })
+	use({ "narayanbs/kanagawa.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "c53dd36adcf512611fa7c523fced55447bfdbfa5" }) -- The completion plugin
