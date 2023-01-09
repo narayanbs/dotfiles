@@ -29,7 +29,6 @@ exec_always gsettings set org.gnome.desktop.interface font-name "Ubuntu 11"
 exec_always gsettings set org.gnome.desktop.interface document-font-name "Sans 11"
 exec_always gsettings set org.gnome.desktop.interface monospace-font-name "Ubuntu Mono 13"
 
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
@@ -206,6 +205,12 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+# ------------------------------------------
+# Audio
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 #
 # Status Bar:
