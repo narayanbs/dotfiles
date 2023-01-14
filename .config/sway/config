@@ -1,3 +1,8 @@
+# ------------------------------------------
+# fix for slow starting apps
+exec systemctl --user import-environment
+
+
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -212,23 +217,40 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-
 # ------------------------------------------
-# fix for slow starting apps
-exec systemctl --user import-environment
+# Brightness control
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
+# bar {
+#     position bottom
+#     #mode hide
+#     #hidden_state hide
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#     status_command while date +'%a   %F   %H:%M       '; do sleep 1; done
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+#
 bar {
     position top
-    mode hide
-    hidden_state hide
+    swaybar_command waybar
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
     colors {
         statusline #ffffff
