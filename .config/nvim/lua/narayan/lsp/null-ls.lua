@@ -41,6 +41,7 @@ null_ls.setup({
 	sources = {
 		formatting.clang_format,
 		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.isort,
 		formatting.stylua,
 		formatting.gofmt,
 		formatting.prettier.with({
