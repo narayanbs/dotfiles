@@ -35,6 +35,10 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
+-- Move buffers
+keymap("n", "]b","<CMD>BufferLineMoveNext<CR>", opts)
+keymap("n", "[b","<CMD>BufferLineMovePrev<CR>", opts)
+
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
