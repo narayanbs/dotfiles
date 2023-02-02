@@ -34,8 +34,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", "<CMD>BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-h>", "<CMD>BufferLineCyclePrev<CR>", opts)
 
--- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+-- Close buffers (using mini.bufremove now in editor.lua)
+-- keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Move buffers
 keymap("n", "]b","<CMD>BufferLineMoveNext<CR>", opts)
@@ -71,10 +71,6 @@ keymap("v", ">", ">gv", opts)
 keymap("i", "jk", "<ESC>", opts)
 
 -- Plugins --
-
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
