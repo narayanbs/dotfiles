@@ -1,14 +1,7 @@
 return {
 	{ "nvim-lua/plenary.nvim" },
 	-- colorscheme
-	{
-		"rmehri01/onenord.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.cmd([[colorscheme onenord]])
-		end,
-	},
+	{ "rmehri01/onenord.nvim", event = "VeryLazy" },
 	{ "catppuccin/nvim", name = "catppuccin", event = "VeryLazy" },
 	{ "EdenEast/nightfox.nvim", event = "VeryLazy" },
 	{ "ellisonleao/gruvbox.nvim", event = "VeryLazy" },

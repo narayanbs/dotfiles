@@ -19,7 +19,6 @@ require("config.commands")
 
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	install = { colorscheme = { "onenord" } },
 	checker = { enabled = true },
 	performance = {
 		rtp = {
@@ -37,3 +36,5 @@ require("lazy").setup("plugins", {
 	},
 	-- debug = true,
 })
+
+vim.cmd([[colorscheme onenord]])
