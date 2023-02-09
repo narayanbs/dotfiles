@@ -135,6 +135,7 @@ return {
 	{
 		-- tmux integration
 		"christoomey/vim-tmux-navigator",
+		event = "VeryLazy",
 	},
 	{
 		-- autopairs
