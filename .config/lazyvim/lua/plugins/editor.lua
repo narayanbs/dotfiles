@@ -176,12 +176,6 @@ return {
 	},
 
 	{ "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" },
-	{
-		"lewis6991/impatient.nvim",
-		init = function()
-			require("narayan.impatient")
-		end,
-	},
 
 	-- snippets
 	{
