@@ -19,7 +19,7 @@ require("config.commands")
 
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	checker = { enabled = true },
+	checker = { enabled = false }, -- set true, if you want to check for updates automatically
 	performance = {
 		rtp = {
 			disabled_plugins = {
