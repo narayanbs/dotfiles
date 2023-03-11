@@ -1,23 +1,40 @@
-require("narayan.features.impatient")
-require("narayan.core.options")
-require("narayan.core.keymaps")
-require("narayan.core.colorscheme")
-require("narayan.plugins")
-require("narayan.features.autocommands")
-require("narayan.features.cmp")
-require("narayan.features.telescope")
-require("narayan.features.gitsigns")
-require("narayan.features.treesitter")
-require("narayan.features.autopairs")
-require("narayan.features.autotag")
-require("narayan.features.comment")
-require("narayan.features.nvim-tree")
-require("narayan.features.bufferline")
-require("narayan.features.lualine")
-require("narayan.features.toggleterm")
-require("narayan.features.project")
-require("narayan.features.illuminate")
-require("narayan.features.indentline")
-require("narayan.features.alpha")
-require("narayan.lsp")
-require("narayan.debug.dap")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+vim.g.mapleader = " "
+
+require("config.options")
+require("config.keymaps")
+require("config.commands")
+
+require("lazy").setup("plugins", {
+	defaults = { lazy = true },
+	checker = { enabled = false }, -- set true, if you want to check for updates automatically
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				--"matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
+	-- debug = true,
+})
+
+vim.cmd([[colorscheme onenord]])

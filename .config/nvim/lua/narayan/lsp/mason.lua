@@ -1,10 +1,6 @@
 local servers = {
 	"gopls",
-	"cssls",
-	"tsserver",
-	"emmet_ls",
 	"pyright",
-	"jsonls",
 }
 
 local settings = {
