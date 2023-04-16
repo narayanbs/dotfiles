@@ -13,9 +13,13 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		cmd = "Telescope",
-		config = function()
-			require("narayan.telescope")
-		end,
+		keys = {
+			-- change a keymap
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+		},
+		-- config = function()
+		--	require("narayan.telescope")
+		-- end,
 	},
 	{
 		-- Treesitter
@@ -97,14 +101,14 @@ return {
 		},
 	},
 	-- buffer remove
-  {
-    "echasnovski/mini.bufremove",
+	{
+		"echasnovski/mini.bufremove",
     -- stylua: ignore
     keys = {
       { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
       { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
     },
-  },
+	},
 	{
 		"echasnovski/mini.indentscope",
 		version = false, -- wait till new 0.7.0 release to put it back on semver
