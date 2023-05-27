@@ -1,0 +1,42 @@
+{
+    "workbench.startupEditor": "none",
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "600",
+    "editor.fontSize": 15,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "workbench.colorTheme": "Kanagawa",
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.color": "#ed779a",
+    "material-icon-theme.folders.theme": "classic",
+    "editor.minimap.enabled": false,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript][javascriptreact][typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json][jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[css][scss][less]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "explorer.confirmDelete": false,
+    "files.exclude": {
+        "**/.vscode": true,
+        "**/.venv": true,
+        "**/db.sqlite3": true,
+        "**/node_modules": true
+    },
+    "breadcrumbs.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "liveServer.settings.donotShowInfoMsg": true,
+}
