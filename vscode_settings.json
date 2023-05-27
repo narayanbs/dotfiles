@@ -3,7 +3,7 @@
     "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": true,
     "editor.fontWeight": "500",
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
