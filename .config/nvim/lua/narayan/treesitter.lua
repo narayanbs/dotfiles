@@ -12,8 +12,6 @@ configs.setup({
 	ensure_installed = {
 		"lua",
 		"vim",
-		"markdown",
-		"markdown_inline",
 		"python",
 		"c",
 		"cpp",
