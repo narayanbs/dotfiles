@@ -5,7 +5,6 @@ local opts = { silent = true }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -47,6 +46,9 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 -- exit editor
 keymap("n", "<leader>q", "<cmd>:qa<CR>", opts)
 
+-- Neo-tree
+keymap("n", "<leader>e", "<cmd>:Neotree toggle=true<CR>", opts)
+
 -- Visual mode
 
 -- Move text up and down
@@ -74,7 +76,7 @@ keymap("i", "jk", "<ESC>", opts)
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git

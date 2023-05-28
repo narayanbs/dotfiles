@@ -7,19 +7,13 @@ return {
 	{ "ellisonleao/gruvbox.nvim", event = "VeryLazy" },
 	{ "narayanbs/kanagawa.nvim", event = "VeryLazy" },
 	{ "folke/tokyonight.nvim", event = "VeryLazy" },
+	{ "shaunsingh/solarized.nvim", event = "VeryLazy" },
 
 	{
 		-- Telescope
 		"nvim-telescope/telescope.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
-		cmd = "Telescope",
-		keys = {
-			-- change a keymap
-			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-		},
-		-- config = function()
-		--	require("narayan.telescope")
-		-- end,
+		lazy = false,
 	},
 	{
 		-- Treesitter
@@ -38,40 +32,14 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		cmd = "Neotree",
-		keys = {
-			{
-				"<leader>fe",
-				function()
-					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-				end,
-				desc = "Explorer NeoTree (cwd)",
-			},
-			{ "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
-		},
-		deactivate = function()
-			vim.cmd([[Neotree close]])
-		end,
-		init = function()
-			vim.g.neo_tree_remove_legacy_commands = 1
-			if vim.fn.argc() == 1 then
-				local stat = vim.loop.fs_stat(vim.fn.argv(0))
-				if stat and stat.type == "directory" then
-					require("neo-tree")
-				end
-			end
-		end,
-		opts = {
-			filesystem = {
-				bind_to_cwd = false,
-				follow_current_file = true,
-			},
-			window = {
-				mappings = {
-					["<space>"] = "none",
+		lazy = false,
+		config = function()
+			require("neo-tree").setup({
+				window = {
+					width = 25,
 				},
-			},
-		},
+			})
+		end
 	},
 	{
 		-- Lua line
@@ -202,5 +170,10 @@ return {
 		opts = function()
 			require("narayan.cmp")
 		end,
+	},
+	-- distraction free writing
+	{
+		"folke/zen-mode.nvim",
+		lazy = false,
 	},
 }
