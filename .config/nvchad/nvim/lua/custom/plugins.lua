@@ -60,5 +60,10 @@ local plugins = {
       require "custom.configs.aerial"
     end,
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+  },
 }
 return plugins
