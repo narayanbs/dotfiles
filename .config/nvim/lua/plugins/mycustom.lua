@@ -11,7 +11,7 @@ return {
     end,
   },
   {
-    "sainnhe/everforest",
+    "neanias/everforest-nvim"
   },
 
   -- Configure LazyVim to load gruvbox
