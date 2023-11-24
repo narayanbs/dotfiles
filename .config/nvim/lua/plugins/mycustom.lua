@@ -1,4 +1,5 @@
 return {
+  -- colorschemes
   -- gruvbox
   { "ellisonleao/gruvbox.nvim" },
 
@@ -9,12 +10,15 @@ return {
       return { transparent = true }
     end,
   },
+  {
+    "sainnhe/everforest",
+  },
 
   -- Configure LazyVim to load gruvbox
-  --{
-  --  "LazyVim/LazyVim",
-  --  opts = { colorscheme = "gruvbox" },
-  --},
+  {
+    "LazyVim/LazyVim",
+    opts = { colorscheme = "everforest" },
+  },
 
   -- treesitter configuration
   {
