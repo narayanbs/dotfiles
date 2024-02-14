@@ -11,7 +11,7 @@ return {
     end,
   },
   {
-    "neanias/everforest-nvim"
+    "neanias/everforest-nvim",
   },
 
   -- Configure LazyVim to load gruvbox
@@ -54,6 +54,8 @@ return {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
         gopls = {},
+        tsserver = {},
+        tailwindcss = {},
       },
     },
   },
@@ -63,8 +65,19 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        ["lua"] = { "stylua" },
-        ["python"] = { "isort", "black" },
+        lua = { "stylua" },
+        python = { "isort", "black" },
+        go = { "goimports", "gofmt" },
+        javascript = { "prettierd" },
+        typescript = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        css = { "prettierd" },
+        html = { "prettierd" },
+        json = { "prettierd" },
+        yaml = { "prettierd" },
+        markdown = { "prettierd" },
+        graphql = { "prettierd" },
       },
     },
   },
