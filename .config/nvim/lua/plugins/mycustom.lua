@@ -94,6 +94,11 @@ return {
   -- Zenmode for focussed writing/coding
   {
     "folke/zen-mode.nvim",
+    keys = function()
+	    return {
+		    {"<leader>zm", "<cmd>ZenMode<cr>", desc="Zen Mode Toggle"},
+	    }
+    end,
     opts = {},
   },
 }
