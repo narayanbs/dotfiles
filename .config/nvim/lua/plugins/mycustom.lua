@@ -51,11 +51,12 @@ return {
         clangd = {
           mason = false,
         },
-        -- pyright will be automatically installed with mason and loaded with lspconfig
+        -- These servers will be automatically installed by mason and loaded with lspconfig
         pyright = {},
         gopls = {},
         tsserver = {},
         tailwindcss = {},
+        emmet_ls = {},
       },
     },
   },
@@ -80,5 +81,19 @@ return {
         graphql = { "prettierd" },
       },
     },
+  },
+  -- colorizer for css/tailwind
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        tailwind = true,
+      },
+    },
+  },
+  -- Zenmode for focussed writing/coding
+  {
+    "folke/zen-mode.nvim",
+    opts = {},
   },
 }
