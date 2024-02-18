@@ -20,6 +20,16 @@ return {
     opts = { colorscheme = "everforest" },
   },
 
+  -- neo-tree Configuration
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        width = 25,
+      },
+    },
+  },
+
   -- treesitter configuration
   {
     "nvim-treesitter/nvim-treesitter",
@@ -95,9 +105,9 @@ return {
   {
     "folke/zen-mode.nvim",
     keys = function()
-	    return {
-		    {"<leader>zm", "<cmd>ZenMode<cr>", desc="Zen Mode Toggle"},
-	    }
+      return {
+        { "<leader>zm", "<cmd>ZenMode<cr>", desc = "Zen Mode Toggle" },
+      }
     end,
     opts = {},
   },
