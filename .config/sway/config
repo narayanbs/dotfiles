@@ -38,7 +38,7 @@ exec_always gsettings set org.gnome.desktop.interface monospace-font-name "Ubunt
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 #output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Downloads/wallpap.jpg fill
+#output * bg ~/Downloads/wallpap.jpg fill
 #
 # Example configuration:
 #
