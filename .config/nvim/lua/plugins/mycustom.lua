@@ -13,13 +13,18 @@ return {
   {
     "neanias/everforest-nvim",
   },
+  {
+    "scottmckendry/cyberdream.nvim",
+    opts = function()
+      return { transparent = false }
+    end,
+  },
 
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "everforest" },
+    opts = { colorscheme = "cyberdream" },
   },
-
   -- neo-tree Configuration
   {
     "nvim-neo-tree/neo-tree.nvim",
