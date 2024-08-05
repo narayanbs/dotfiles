@@ -1,29 +1,24 @@
 return {
   -- colorschemes
-  -- gruvbox
-  { "ellisonleao/gruvbox.nvim" },
-
-  -- solarized-osaka
+  -- everforest
   {
-    "craftzdog/solarized-osaka.nvim",
-    opts = function()
-      return { transparent = true }
-    end,
+    "sainnhe/everforest",
   },
-  {
-    "neanias/everforest-nvim",
-  },
+  -- cyberdream
   {
     "scottmckendry/cyberdream.nvim",
-    opts = function()
-      return { transparent = false }
-    end,
   },
-
-  -- Configure LazyVim to load gruvbox
+  -- kanagawa
+  {
+    "rebelot/kanagawa.nvim",
+  },
+  {
+    "ramojus/mellifluous.nvim",
+  },
+  -- Configure LazyVim to load colorscheme
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "cyberdream" },
+    opts = { colorscheme = "mellifluous" },
   },
   -- neo-tree Configuration
   {
@@ -62,6 +57,7 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
+      inlay_hints = { enabled = false },
       servers = {
         clangd = {
           mason = false,
