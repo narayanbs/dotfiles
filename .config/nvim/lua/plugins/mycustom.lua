@@ -16,10 +16,14 @@ return {
 	{
 		"ramojus/mellifluous.nvim",
 	},
+	-- darcula-dark
+	{
+		"xiantang/darcula-dark.nvim",
+	},
 	-- Configure LazyVim to load colorscheme
 	{
 		"LazyVim/LazyVim",
-		opts = { colorscheme = "kanagawa" },
+		opts = { colorscheme = "darcula-dark" },
 	},
 	-- neo-tree Configuration
 	{
