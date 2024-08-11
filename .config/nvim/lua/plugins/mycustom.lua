@@ -20,10 +20,13 @@ return {
 	{
 		"xiantang/darcula-dark.nvim",
 	},
+	{
+		"phha/zenburn.nvim",
+	},
 	-- Configure LazyVim to load colorscheme
 	{
 		"LazyVim/LazyVim",
-		opts = { colorscheme = "darcula-dark" },
+		opts = { colorscheme = "zenburn" },
 	},
 	-- neo-tree Configuration
 	{

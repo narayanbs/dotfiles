@@ -1,6 +1,6 @@
 {
     "workbench.startupEditor": "none",
-    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": false,
     "editor.fontWeight": "500",
     "editor.fontSize": 14,
@@ -9,6 +9,7 @@
         "source.organizeImports": "always"
     },
     "editor.inlayHints.enabled": "offUnlessPressed",
+    "workbench.colorTheme": "Zenburn",
     "workbench.iconTheme": "vscode-icons",
     "editor.minimap.enabled": false,
     "emmet.includeLanguages": {
@@ -43,5 +44,4 @@
     "telemetry.telemetryLevel": "off",
     "liveServer.settings.donotShowInfoMsg": true,
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.colorTheme": "Default Dark+",
 }
