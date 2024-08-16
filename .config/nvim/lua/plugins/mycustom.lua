@@ -4,10 +4,6 @@ return {
 	{
 		"sainnhe/everforest",
 	},
-	-- cyberdream
-	{
-		"scottmckendry/cyberdream.nvim",
-	},
 	-- kanagawa
 	{
 		"rebelot/kanagawa.nvim",
