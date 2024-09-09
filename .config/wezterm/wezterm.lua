@@ -20,9 +20,9 @@ config.color_scheme = "iceberg-dark"
 
 -- font
 --config.font = wezterm.font("FiraCode Nerd Font", { weight = "Regular" })
---config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
-config.font = wezterm.font("CaskaydiaMono Nerd Font", { weight = "Regular" })
-config.font_size = 13
+--config.font = wezterm.font("CaskaydiaMono Nerd Font", { weight = "Regular" })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
+config.font_size = 12
 
 -- Config keys
 --
