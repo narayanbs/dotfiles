@@ -1,6 +1,4 @@
-#import = ["/home/phoenix/.config/alacritty/alacritty_everforest.toml"]
-#import = ["/home/phoenix/.config/alacritty/alacritty_kanagawa.yml"]
-import = ["/home/phoenix/.config/alacritty/alacritty_iceberg.yml"]
+import = ["~/.config/alacritty/alacritty_iceberg.toml"]
 
 [font]
 size = 13.0
