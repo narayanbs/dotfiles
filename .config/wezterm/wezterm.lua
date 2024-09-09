@@ -7,13 +7,22 @@ local config = wezterm.config_builder()
 -- Remove title bar
 config.window_decorations = "RESIZE"
 
+-- window padding
+config.window_padding = {
+	right = 0,
+	bottom = 0,
+	top = 0,
+}
+
 -- colorscheme
-config.color_scheme = "Desert"
+--config.color_scheme = "Desert"
+config.color_scheme = "iceberg-dark"
 
 -- font
---config.font = wezterm.font("FiraCode Nerd Font", { weight = "Medium" })
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" })
-config.font_size = 11
+--config.font = wezterm.font("FiraCode Nerd Font", { weight = "Regular" })
+--config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular" })
+config.font = wezterm.font("CaskaydiaMono Nerd Font", { weight = "Regular" })
+config.font_size = 13
 
 -- Config keys
 --
@@ -38,7 +47,14 @@ config.keys = {
 	{
 		key = "_",
 		mods = "LEADER|SHIFT",
-		action = wezterm.action.SplitPane({ direction = "Down", size = { Percent = 30 } }),
+		action = wezterm.action.SplitPane({ direction = "Down", size = { Percent = 20 } }),
+	},
+
+	-- Toggle full screen
+	{
+		key = "f",
+		mods = "LEADER|SHIFT",
+		action = wezterm.action.TogglePaneZoomState,
 	},
 
 	-- Navigation ()
