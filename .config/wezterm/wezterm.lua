@@ -5,7 +5,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- Remove title bar
-config.window_decorations = "RESIZE"
+config.window_decorations = "None"
 
 -- window padding
 config.window_padding = {
