@@ -20,6 +20,9 @@ style = "Italic"
 family = "CaskaydiaMono Nerd Font"
 style = "Regular"
 
+[window]
+decorations = "None"
+
 [window.padding]
 x = 5
 y = 0
