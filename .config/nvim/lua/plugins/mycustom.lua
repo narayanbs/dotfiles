@@ -25,10 +25,18 @@ return {
 	{
 		"narayanbs/mylake.nvim",
 	},
+	{
+		"alljokecake/naysayer-theme.nvim",
+		opts = {
+			disable_italics = false,
+		},
+	},
+
 	-- Configure LazyVim to load colorscheme
 	{
 		"LazyVim/LazyVim",
-		opts = { colorscheme = "lake" },
+		--opts = { colorscheme = "lake" },
+		opts = { colorscheme = "naysayer" },
 	},
 	-- neo-tree Configuration
 	{
