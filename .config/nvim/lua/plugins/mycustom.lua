@@ -1,42 +1,12 @@
 return {
 	-- colorschemes
-	-- everforest
-	{
-		"neanias/everforest-nvim",
-	},
-	-- kanagawa
-	{
-		"rebelot/kanagawa.nvim",
-	},
-	-- mellifluous
-	{
-		"ramojus/mellifluous.nvim",
-	},
-	-- darcula-dark
-	{
-		"xiantang/darcula-dark.nvim",
-	},
-	{
-		"phha/zenburn.nvim",
-	},
-	{
-		"fenetikm/falcon",
-	},
-	{
-		"narayanbs/mylake.nvim",
-	},
-	{
-		"alljokecake/naysayer-theme.nvim",
-		opts = {
-			disable_italics = false,
-		},
-	},
-
+	{ "narayanbs/mylake.nvim" },
+	{ "ribru17/bamboo.nvim" },
+	{ "AlexvZyl/nordic.nvim" },
 	-- Configure LazyVim to load colorscheme
 	{
 		"LazyVim/LazyVim",
-		--opts = { colorscheme = "lake" },
-		opts = { colorscheme = "naysayer" },
+		opts = { colorscheme = "nordic" },
 	},
 	-- neo-tree Configuration
 	{
