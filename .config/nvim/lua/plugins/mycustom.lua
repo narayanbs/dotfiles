@@ -1,12 +1,14 @@
 return {
 	-- colorschemes
 	{ "narayanbs/mylake.nvim" },
+	{ "catppuccin/nvim" },
 	{ "ribru17/bamboo.nvim" },
 	{ "AlexvZyl/nordic.nvim" },
 	-- Configure LazyVim to load colorscheme
 	{
 		"LazyVim/LazyVim",
 		opts = { colorscheme = "nordic" },
+		--opts = { colorscheme = "catppuccin-mocha" },
 	},
 	-- neo-tree Configuration
 	{
