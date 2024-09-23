@@ -9,7 +9,7 @@
         "source.organizeImports": "always"
     },
     "editor.inlayHints.enabled": "offUnlessPressed",
-    "workbench.colorTheme": "Catppuccin Frappe",
+    "workbench.colorTheme": "Catppuccin Mocha",
     "catppuccin.italicKeywords": false,
     "workbench.iconTheme": "vscode-icons",
     "editor.minimap.enabled": false,

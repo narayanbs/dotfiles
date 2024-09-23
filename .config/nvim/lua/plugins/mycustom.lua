@@ -8,7 +8,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		--opts = { colorscheme = "nordic" },
-		opts = { colorscheme = "catppuccin-frappe" },
+		opts = { colorscheme = "catppuccin-mocha" },
 	},
 	-- neo-tree Configuration
 	{
