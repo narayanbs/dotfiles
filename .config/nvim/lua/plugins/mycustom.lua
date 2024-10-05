@@ -1,7 +1,7 @@
 return {
   -- colorschemes
   { "neanias/everforest-nvim" },
-  { "f4z3r/gruvbox-material.nvim", opts = { contrast = "hard" } },
+  { "f4z3r/gruvbox-material.nvim", opts = { contrast = "soft" } },
   -- Configure LazyVim to load colorscheme
   {
     "LazyVim/LazyVim",
