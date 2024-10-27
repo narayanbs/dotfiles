@@ -4,10 +4,11 @@ return {
 	{ "AlexvZyl/nordic.nvim" },
 	{ "vague2k/vague.nvim" },
 	{ "ilof2/posterpole.nvim" },
+	{ "f4z3r/gruvbox-material.nvim" },
 	-- Configure LazyVim to load colorscheme
 	{
 		"LazyVim/LazyVim",
-		opts = { colorscheme = "vague" },
+		opts = { colorscheme = "gruvbox-material" },
 	},
 	-- neo-tree Configuration
 	{
@@ -57,7 +58,7 @@ return {
 				-- These servers will be automatically installed by mason and loaded with lspconfig
 				pyright = {},
 				gopls = {},
-				tsserver = {},
+				ts_ls = {},
 				tailwindcss = {},
 				emmet_ls = {},
 			},
