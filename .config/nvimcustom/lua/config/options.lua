@@ -7,6 +7,7 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 
 vim.o.relativenumber = true
+vim.o.cursorline = true
 
 vim.o.clipboard = "unnamedplus"
 
@@ -25,9 +26,13 @@ vim.o.splitright = true
 vim.opt.termguicolors = true
 
 vim.o.swapfile = false
+vim.o.backup = false
+
 vim.o.smartindent = true
 
 vim.o.backspace = "indent,eol,start"
 vim.wo.signcolumn = "yes"
 
 vim.o.fileencoding = "utf-8"
+vim.o.showmode = false
+vim.o.showtabline = 2
