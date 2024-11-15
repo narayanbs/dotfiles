@@ -127,12 +127,12 @@ return {
 			ensure_installed = servers,
 		})
 
+		local all_servers = vim.tbl_extend("force", servers, { "clangd" })
+
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
 
-		table.insert(servers, "clangd")
-
-		for _, server_name in pairs(servers) do
+		for _, server_name in pairs(all_servers) do
 			lspconfig[server_name].setup({
 				capabilities = capabilities,
 				handlers = handlers,
