@@ -6,8 +6,11 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
 
+vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
+vim.o.ruler = false
+vim.o.statuscolumn = [[%!v:lua.require'utils.ui'.statuscolumn()]]
 
 vim.o.clipboard = "unnamedplus"
 
