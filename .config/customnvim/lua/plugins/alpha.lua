@@ -37,6 +37,10 @@ return {
 				end,
 			})
 		end
+
+		-- disable mini-indentscope
+		vim.b.miniindentscope_disable = true
+
 		alpha.setup(dashboard.opts)
 		vim.api.nvim_create_autocmd("User", {
 			once = true,
