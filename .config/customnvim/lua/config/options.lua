@@ -15,7 +15,14 @@ vim.o.statuscolumn = [[%!v:lua.require'utils.ui'.statuscolumn()]]
 vim.o.clipboard = "unnamedplus"
 
 -- Not display ~ for blank lines
-vim.wo.fillchars = "eob: "
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
 
 vim.o.mouse = "a"
 vim.o.autoindent = true
