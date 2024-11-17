@@ -14,24 +14,6 @@ return {
 	},
 
 	config = function()
-		-- beautifying borders when we do shift+k for documentation.
-		--
-		local border = {
-			{ "🭽", "FloatBorder" },
-			{ "▔", "FloatBorder" },
-			{ "🭾", "FloatBorder" },
-			{ "▕", "FloatBorder" },
-			{ "🭿", "FloatBorder" },
-			{ "▁", "FloatBorder" },
-			{ "🭼", "FloatBorder" },
-			{ "▏", "FloatBorder" },
-		}
-
-		-- LSP settings (for overriding per client)
-		local handlers = {
-			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-		}
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -119,20 +101,19 @@ return {
 			end,
 		})
 
-		local servers = { "gopls", "pyright", "ts_ls", "emmet_ls", "lua_ls" }
+		local servers = { "clangd", "gopls", "pyright", "ts_ls", "emmet_ls", "lua_ls" }
 
 		require("mason").setup()
 
 		require("mason-lspconfig").setup({
-			ensure_installed = servers,
+			ensure_installed = vim.list_slice(servers, 2, 6),
 		})
 
-		local all_servers = vim.tbl_extend("force", servers, { "clangd" })
-
+		local handlers = {}
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
 
-		for _, server_name in pairs(all_servers) do
+		for _, server_name in pairs(servers) do
 			lspconfig[server_name].setup({
 				capabilities = capabilities,
 				handlers = handlers,
