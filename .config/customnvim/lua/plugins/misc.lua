@@ -4,6 +4,11 @@ return {
 		event = "VeryLazy",
 	},
 	{
+		"echasnovski/mini.pairs",
+		version = false,
+		opts = {},
+	},
+	{
 		"echasnovski/mini.surround",
 		version = false,
 		config = function()
