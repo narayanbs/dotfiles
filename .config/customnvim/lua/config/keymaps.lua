@@ -2,6 +2,9 @@ local opts = { noremap = true, silent = true }
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", opts)
 
+-- clear search highlight using escape key
+vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+
 --- Quit Neovim
 vim.keymap.set("n", "<leader>qq", ":qa<CR>", { desc = "Exit Neovim" })
 
