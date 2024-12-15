@@ -21,20 +21,23 @@ return {
     },
   },
   {
+
     "sainnhe/sonokai",
-    config = function()
-      if vim.opt.termguicolors:get() then
-        vim.opt.termguicolors = false
-      end
-      vim.cmd("colorscheme sonokai")
-    end,
+    -- Instead of uncommenting the following you can
+    -- use set notermguicolors command before using
+    -- config = function()
+    --   if vim.opt.termguicolors:get() then
+    --     vim.opt.termguicolors = false
+    --   end
+    --   vim.cmd("colorscheme sonokai")
+    --end,
   },
 
   -- Load the colorscheme
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = { colorscheme = "sonokai" },
-  -- },
+  {
+    "LazyVim/LazyVim",
+    opts = { colorscheme = "sonokai" },
+  },
   -- neo-tree Configuration
   {
     "nvim-neo-tree/neo-tree.nvim",
