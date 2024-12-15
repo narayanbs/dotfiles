@@ -1,12 +1,17 @@
 [font]
-#default is 11.25
+# default is 11.25
+#size = 11.75
 size = 11.50
 
-[font.bold]
+[font.normal]
 #family = "FiraCode Nerd Font"
 #family = "Cascadia Code NF"
 family = "JetBrainsMono Nerd Font"
 style = "Medium"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
 [font.bold_italic]
 family = "JetBrainsMono Nerd Font"
@@ -15,10 +20,6 @@ style = "Bold Italic"
 [font.italic]
 family = "JetBrainsMono Nerd Font"
 style = "Italic"
-
-[font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "Regular"
 
 [window]
 decorations = "None"
