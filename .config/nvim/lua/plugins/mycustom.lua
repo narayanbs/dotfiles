@@ -1,8 +1,6 @@
 return {
 	-- colorschemes
 	--{ "rrethy/base16-nvim" },
-	{ "narayanbs/mylake.nvim" },
-	{ "daschw/leaf.nvim", opts = { contrast = "low" } },
 	{
 		"ellisonleao/gruvbox.nvim", -- theme
 		opts = {
@@ -53,6 +51,7 @@ return {
 				"go",
 				"cpp",
 				"rust",
+				"zig",
 			},
 		},
 	},
@@ -76,6 +75,7 @@ return {
 				ts_ls = {},
 				tailwindcss = {},
 				emmet_ls = {},
+				zls = {}, 
 			},
 		},
 	},
