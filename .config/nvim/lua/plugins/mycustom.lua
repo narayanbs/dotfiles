@@ -18,23 +18,12 @@ return {
 			-- },
 		},
 	},
-	{
-
-		"sainnhe/sonokai",
-		-- Instead of uncommenting the following you can
-		-- use set notermguicolors command before using
-		-- config = function()
-		--   if vim.opt.termguicolors:get() then
-		--     vim.opt.termguicolors = false
-		--   end
-		--   vim.cmd("colorscheme sonokai")
-		--end,
-	},
 	{ "navarasu/onedark.nvim", opts = { style = "warmer" } },
+	{ "whizikxd/naysayer-colors.nvim" },
 	-- Load the colorscheme
 	{
 		"LazyVim/LazyVim",
-		opts = { colorscheme = "onedark" },
+		opts = { colorscheme = "naysayer" },
 	},
 	-- neo-tree Configuration
 	{
