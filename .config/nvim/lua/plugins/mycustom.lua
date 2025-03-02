@@ -21,7 +21,7 @@ return {
   -- Load the colorscheme
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "naysayer" },
+    opts = { colorscheme = "catppuccin-frappe" },
   },
   -- neo-tree Configuration
   {
@@ -119,11 +119,5 @@ return {
       }
     end,
     opts = {},
-  },
-  -- disable highlighting word under cursor
-  -- comment below code if you don't need the above
-  {
-    "snacks.nvim",
-    opts = { words = { enabled = false } },
   },
 }
