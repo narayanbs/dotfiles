@@ -1,29 +1,37 @@
 return {
 	-- colorschemes
 	--{ "rrethy/base16-nvim" },
-	{
-		"ellisonleao/gruvbox.nvim", -- theme
-		opts = {
-			bold = false,
-			-- palette_overrides = {
-			--   bright_green = "#b8bb26",
-			--   bright_red = "#fb4934",
-			--   bright_orange = "#d65d0e",
-			--   bright_yellow = "#fabd2f",
-			-- },
-			-- overrides = {
-			--   Function = { fg = "#83a598" },
-			-- },
-		},
-	},
 	{ "navarasu/onedark.nvim", opts = { style = "warmer" } },
 	{ "whizikxd/naysayer-colors.nvim" },
-	{ "olivercederborg/poimandres.nvim", opts = {} },
+	{
+		"cpea2506/one_monokai.nvim",
+		opts = {
+			colors = {
+				green = "#a9cf8f",
+				aqua = "#8bbfe1",
+				-- pink = "#ca4a7a",
+				pink = "#d46e94",
+			},
+			themes = function(colors)
+				return {
+					Identifier = { fg = colors.aqua },
+					Structure = { fg = colors.aqua },
+					Type = { fg = colors.aqua },
+					["@keyword.type"] = { fg = colors.pink },
+					["@variable.parameter"] = { fg = colors.fg },
+					["@lsp.type.parameter"] = { fg = colors.fg },
+					["@lsp.type.typeParameter"] = { fg = colors.fg },
+					["@variable.builtin"] = { fg = colors.aqua },
+					["@type.builtin"] = { fg = colors.aqua },
+				}
+			end,
+		},
+	},
 
 	-- Load the colorscheme
 	{
 		"LazyVim/LazyVim",
-		opts = { colorscheme = "naysayer" },
+		opts = { colorscheme = "one_monokai" },
 	},
 	-- neo-tree Configuration
 	{
