@@ -12,7 +12,7 @@ return {
         -- pink = "#ca4a7a",
         pink = "#E17477",
       },
-      themes = function(colors)
+      highlights = function(colors)
         return {
           Identifier = { fg = colors.aqua },
           Structure = { fg = colors.aqua },
