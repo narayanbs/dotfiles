@@ -49,3 +49,5 @@ vim.wo.signcolumn = "yes"
 vim.o.fileencoding = "utf-8"
 vim.o.showmode = false
 vim.o.showtabline = 2
+
+vim.opt.completeopt = { "menuone", "noselect", "popup" } 

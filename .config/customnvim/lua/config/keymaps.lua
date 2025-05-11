@@ -40,4 +40,6 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "open diagn
 vim.keymap.set("n", "<leader>x", vim.diagnostic.setloclist, { desc = "show all diagnostics" })
 
 --- completion
-vim.opt.completeopt = { "menuone", "noselect", "popup" } 
+vim.keymap.set('i', '<c-space>', function()
+  vim.lsp.completion.get()
+end)
