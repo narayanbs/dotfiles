@@ -67,7 +67,6 @@ return {
 	-- lsp configuration
 	{
 		"neovim/nvim-lspconfig",
-		---@class PluginLspOpts
 		opts = {
 			inlay_hints = { enabled = false },
 			document_highlight = {
