@@ -38,3 +38,6 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "goto previous diag
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "goto next diagnostic" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "open diagnostic" })
 vim.keymap.set("n", "<leader>x", vim.diagnostic.setloclist, { desc = "show all diagnostics" })
+
+--- completion
+vim.opt.completeopt = { "menuone", "noselect", "popup" } 

@@ -10,11 +10,11 @@ return {
 		{ "j-hui/fidget.nvim", opts = {} },
 
 		-- Allows extra capabilities provided by nvim-cmp
-		"hrsh7th/cmp-nvim-lsp",
+		-- not required now
+		--"hrsh7th/cmp-nvim-lsp",
 	},
 
 	config = function()
-
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -50,7 +50,7 @@ return {
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
-				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
@@ -110,13 +110,23 @@ return {
 		})
 
 		local handlers = {}
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- not required anymore
+		--local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
 
 		for _, server_name in pairs(servers) do
 			lspconfig[server_name].setup({
 				capabilities = capabilities,
 				handlers = handlers,
+				on_attach = function(client, bufnr)
+					vim.lsp.completion.enable(true, client.id, bufnr, {
+						autotrigger = true,
+						convert = function(item)
+							return { abbr = item.label:gsub("%b()", "") }
+						end,
+					})
+					vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
+				end,
 			})
 		end
 	end,
