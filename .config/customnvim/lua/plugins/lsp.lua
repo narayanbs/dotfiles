@@ -9,9 +9,6 @@ return {
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{ "j-hui/fidget.nvim", opts = {} },
 
-		-- Allows extra capabilities provided by nvim-cmp
-		-- not required now
-		--"hrsh7th/cmp-nvim-lsp",
 	},
 
 	config = function()
@@ -110,8 +107,6 @@ return {
 		})
 
 		local handlers = {}
-		-- not required anymore
-		--local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local lspconfig = require("lspconfig")
 
 		for _, server_name in pairs(servers) do
