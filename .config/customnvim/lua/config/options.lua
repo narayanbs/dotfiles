@@ -52,3 +52,5 @@ vim.o.showtabline = 2
 
 vim.opt.completeopt = { "menuone", "noselect", "popup" } 
 vim.opt.confirm=true
+
+vim.opt.undofile=true

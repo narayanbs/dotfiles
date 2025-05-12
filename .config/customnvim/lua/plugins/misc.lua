@@ -4,15 +4,6 @@ return {
 		event = "VeryLazy",
 	},
 	{
-		"echasnovski/mini.indentscope",
-		version = false,
-		opts = {
-			-- symbol = "▏",
-			symbol = "│",
-			options = { try_as_border = true },
-		},
-	},
-	{
 		"echasnovski/mini.pairs",
 		version = false,
 		opts = {},
