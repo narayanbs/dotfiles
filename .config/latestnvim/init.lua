@@ -10,4 +10,5 @@ vim.lsp.enable({
 	"lua",
 })
 
+vim.diagnostic.config({ virtual_text = true })
 
