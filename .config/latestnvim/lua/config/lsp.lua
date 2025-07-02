@@ -22,6 +22,7 @@ vim.lsp.enable({
 	"go",
 	"pyright",
 	"lua",
+	"ts_ls",
 })
 
 vim.diagnostic.config({ virtual_text = true })
