@@ -23,6 +23,7 @@ vim.lsp.enable({
 	"pyright",
 	"lua",
 	"ts_ls",
+	"emmet_language_server",
 })
 
 vim.diagnostic.config({ virtual_text = true })
