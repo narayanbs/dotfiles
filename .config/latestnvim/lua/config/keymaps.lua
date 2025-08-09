@@ -25,6 +25,8 @@ vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
 
 -- Buffer mappings - (Close others, Close current, previous tab, next tab)
 vim.keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>", opts)
+vim.keymap.set("n", "<leader>br", ":BufferLineCloseRight<CR>", opts)
+vim.keymap.set("n", "<leader>bl", ":BufferLineCloseLeft<CR>", opts)
 vim.keymap.set("n", "<leader>bd", ":<C-U>bprevious <bar> bdelete #<CR>", opts)
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", opts)
