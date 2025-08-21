@@ -1,22 +1,23 @@
 [font]
 # default is 11.25
 #size = 10.50
-size = 11
+#size = 10
+size=11
 
 [font.normal]
-family = "Hack Nerd Font"
-style = "Regular"
+family = "Maple Mono NF"
+style = "Medium"
 
 [font.bold]
-family = "Hack Nerd Font"
+family = "Maple Mono NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "Hack Nerd Font"
+family = "Maple Mono NF"
 style = "Bold Italic"
 
 [font.italic]
-family = "Hack Nerd Font"
+family = "Maple Mono NF"
 style = "Italic"
 
 #[window]
