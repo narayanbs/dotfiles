@@ -1,8 +1,8 @@
 [font]
 # default is 11.25
-#size = 10.50
 #size = 10
-size=11
+#size=11
+size = 10.50
 
 [font.normal]
 family = "Maple Mono NF"
