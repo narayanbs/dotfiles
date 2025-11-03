@@ -1,1 +1,1 @@
-vim.cmd("colorscheme naysayer")
+vim.cmd("colorscheme onedark")
