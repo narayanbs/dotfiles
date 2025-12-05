@@ -9,7 +9,7 @@ vim.o.autoindent = false
 vim.o.smartindent = false
 
 vim.o.number = true
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 vim.o.cursorline = true
 vim.o.ruler = false
 vim.o.statuscolumn = [[%!v:lua.require'utils.ui'.statuscolumn()]]
