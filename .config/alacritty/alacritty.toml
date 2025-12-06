@@ -1,26 +1,21 @@
 [font]
 # default is 11.25
-#size = 10
-#size=11
-#size = 10.50
-size = 12
+size = 13
 
 [font.normal]
-# family = "Maple Mono NF"
-# style = "Medium"
-family = "Cascadia Mono NF"
+family = "Mononoki Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "Cascadie Mono NF"
+family = "Mononoki Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "Cascadie Mono NF"
+family = "Mononoki Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "Cascadie Mono NF"
+family = "Mononoki Nerd Font Mono"
 style = "Italic"
 
 #[window]
