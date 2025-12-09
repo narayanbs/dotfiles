@@ -1,21 +1,21 @@
 [font]
 # default is 11.25
-size = 13
+size = 12
 
 [font.normal]
-family = "Mononoki Nerd Font Mono"
-style = "Bold"
+family = "JetBrainsMono Nerd Font"
+style = "Medium"
 
 [font.bold]
-family = "Mononoki Nerd Font Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Mononoki Nerd Font Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Mononoki Nerd Font Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 #[window]

@@ -1,8 +1,8 @@
 {
     "workbench.startupEditor": "none",
-    "editor.fontFamily": "Mononoki Nerd Font Mono",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": false,
-    "editor.fontWeight": "500",
+    "editor.fontWeight": "400",
     "editor.fontSize": 16,
     "terminal.integrated.fontSize": 16,
     "editor.formatOnSave": true,
