@@ -1,3 +1,3 @@
 return {
-	{ "narayanbs/mylake.nvim" },
+	{ "loctvl842/monokai-pro.nvim", opts = { filter = "pro" } },
 }
