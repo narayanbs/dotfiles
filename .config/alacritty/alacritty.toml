@@ -1,5 +1,5 @@
-[font]
-size = 11.50
+[font.normal]
+family="Hack Nerd Font Mono"
 
 #[window]
 #decorations = "None"
