@@ -1,5 +1,6 @@
 [font.normal]
-family="Hack Nerd Font Mono"
+family="FiraMono Nerd Font Mono"
+style="Medium"
 
 #[window]
 #decorations = "None"
