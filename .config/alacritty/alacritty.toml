@@ -1,7 +1,3 @@
-[font.normal]
-family="FiraMono Nerd Font Mono"
-style="Medium"
-
 #[window]
 #decorations = "None"
 
