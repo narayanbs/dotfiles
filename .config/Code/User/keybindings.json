@@ -79,4 +79,9 @@
     "command": "workbench.action.closeEditorsToTheLeft",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus && editorHasDefinitionProvider"
+  },
 ]
