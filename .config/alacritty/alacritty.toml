@@ -1,12 +1,12 @@
 [font]
-size=11
+size=11.50
 
 [font.normal]
-family="Monaspace Argon NF"
+family="GeistMono Nerd Font Mono"
 style="Medium"
 
-#[window]
-#decorations = "None"
+[window]
+decorations = "None"
 
 [window.padding]
 x = 5
