@@ -37,6 +37,8 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.opt.termguicolors = true
+-- for sonokai 
+-- vim.opt.termguicolors = false
 
 vim.o.swapfile = false
 vim.o.backup = false
