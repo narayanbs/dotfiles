@@ -1,3 +1,4 @@
 return {
-	{"sainnhe/sonokai"},
+	{ "sainnhe/sonokai" },
+	{ "projekt0n/github-nvim-theme", name = "github-theme" },
 }
