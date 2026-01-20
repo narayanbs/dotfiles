@@ -15,7 +15,15 @@ return {
 			require("mini.surround").setup({})
 		end,
 	},
-	-- lazy.nvim
+	{
+		"echasnovski/mini.indentscope",
+		version = false,
+		opts = {
+			-- symbol = "▏",
+			symbol = "│",
+			options = { try_as_border = true },
+		},
+	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
