@@ -1,2 +1,1 @@
-vim.cmd("colorscheme conifer")
-
+vim.cmd("colorscheme ponokai")
