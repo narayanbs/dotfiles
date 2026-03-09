@@ -161,6 +161,7 @@ require("bufferline").setup({
 				text_align = "left",
 			},
 		},
+		sort_by = "insert_at_end",
 	},
 })
 
@@ -229,6 +230,9 @@ require("mason-lspconfig").setup({
 })
 
 require("noice").setup({
+	-- opts = {
+	-- 	messages = { enabled = false },
+	-- },
 	lsp = {
 		progress = { enabled = false },
 		override = {
