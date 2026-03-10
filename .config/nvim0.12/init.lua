@@ -170,6 +170,7 @@ require("bufferline").setup({
 require("lualine").setup({
 	options = {
 		theme = "auto",
+		globalstatus = true,
 	},
 	extensions = {
 		"neo-tree",
@@ -230,9 +231,21 @@ require("mason-lspconfig").setup({
 })
 
 require("noice").setup({
-	-- opts = {
-	-- 	messages = { enabled = false },
-	-- },
+	routes = {
+		{
+			filter = {
+				event = "msg_show",
+				any = {
+					{ find = "%d+L, %d+B" },
+					{ find = "; after #%d+" },
+					{ find = "; before #%d+" },
+					{ find = "%d fewer lines" },
+					{ find = "%d more lines" },
+				},
+			},
+			opts = { skip = true },
+		},
+	},
 	lsp = {
 		progress = { enabled = false },
 		override = {
