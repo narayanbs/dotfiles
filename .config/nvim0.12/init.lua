@@ -30,7 +30,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-vim.opt.inccommand = "split"
+vim.opt.inccommand = "nosplit"
 
 vim.opt.cursorline = true
 
