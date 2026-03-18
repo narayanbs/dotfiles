@@ -109,8 +109,6 @@ local setup_treesitter = function()
 		"python",
 		"typescript",
 		"bash",
-		"lua",
-		"python",
 	}
 
 	local config = require("nvim-treesitter.config")
