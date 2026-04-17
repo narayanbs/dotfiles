@@ -51,6 +51,7 @@ vim.opt.confirm = true
 vim.pack.add({
 
 	"https://github.com/shawilly/ponokai", -- colorscheme
+	"https://github.com/Aejkatappaja/sora",
 
 	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -89,7 +90,7 @@ vim.pack.add({
 ---------------------------------
 
 -- colorscheme
-vim.cmd("colorscheme ponokai")
+vim.cmd("colorscheme sora")
 
 -- treesitter
 local setup_treesitter = function()
