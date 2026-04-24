@@ -67,7 +67,11 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim", -- package manager
 	"https://github.com/mason-org/mason-lspconfig.nvim", -- lspconfig bridge
 
-	"https://github.com/saghen/blink.cmp", -- completion plugin
+	-- blink.cmp
+	{
+		src = "https://github.com/saghen/blink.cmp",
+		version = vim.version.range("^1"),
+	},
 
 	"https://github.com/stevearc/conform.nvim", -- formatter
 
