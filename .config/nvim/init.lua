@@ -36,6 +36,7 @@ vim.pack.add({
 	-- colorscheme
 	"https://github.com/shawilly/ponokai",
 	"https://github.com/Aejkatappaja/sora",
+	"https://github.com/mofiqul/dracula.nvim",
 	-- treesitter
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- lsp
@@ -88,7 +89,7 @@ end
 -- COLORSCHEME
 -- =============================================================================
 
-safe_cmd("colorscheme ponokai", "Colorscheme 'ponokai' not found")
+safe_cmd("colorscheme dracula", "Colorscheme 'ponokai' not found")
 
 -- =============================================================================
 -- PLUGIN CONFIGS
@@ -116,7 +117,17 @@ safe_require("nvim-treesitter.configs", function(ts)
 end)
 
 safe_require("neo-tree", function(nt)
-	nt.setup({ window = { width = 25 } })
+	nt.setup({
+		window = { width = 25 },
+		-- enable_git_status = true,
+		-- enable_diagnostics = true,
+		--
+		-- default_component_configs = {
+		-- 	icon = {
+		-- 		enabled = true,
+		-- 	},
+		-- },
+	})
 end)
 
 safe_require("bufferline", function(bl)
