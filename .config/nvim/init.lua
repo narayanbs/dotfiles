@@ -36,7 +36,7 @@ vim.pack.add({
 	-- colorscheme
 	"https://github.com/shawilly/ponokai",
 	"https://github.com/Aejkatappaja/sora",
-	"https://github.com/mofiqul/dracula.nvim",
+	"https://github.com/AlexvZyl/nordic.nvim",
 	-- treesitter
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- lsp
@@ -89,7 +89,7 @@ end
 -- COLORSCHEME
 -- =============================================================================
 
-safe_cmd("colorscheme dracula", "Colorscheme 'ponokai' not found")
+safe_cmd("colorscheme nordic", "Colorscheme 'nordic' not found")
 
 -- =============================================================================
 -- PLUGIN CONFIGS
