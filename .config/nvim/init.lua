@@ -37,6 +37,7 @@ vim.pack.add({
 	"https://github.com/shawilly/ponokai",
 	"https://github.com/Aejkatappaja/sora",
 	"https://github.com/AlexvZyl/nordic.nvim",
+	"https://github.com/rmehri01/onenord.nvim",
 	-- treesitter
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- lsp
@@ -89,7 +90,7 @@ end
 -- COLORSCHEME
 -- =============================================================================
 
-safe_cmd("colorscheme nordic", "Colorscheme 'nordic' not found")
+safe_cmd("colorscheme onenord", "Colorscheme 'onenord' not found")
 
 -- =============================================================================
 -- PLUGIN CONFIGS
