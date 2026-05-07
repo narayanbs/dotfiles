@@ -1,3 +1,4 @@
+----------------
 -- =============================================================================
 -- OPTIONS
 -- =============================================================================
@@ -29,22 +30,27 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.confirm = true
 
--- =============================================================================
--- PLUGINS
--- =============================================================================
+----------------
+-- Plugins
+----------------------------------------------
 vim.pack.add({
+
 	-- colorscheme
 	"https://github.com/shawilly/ponokai",
 	"https://github.com/Aejkatappaja/sora",
 	"https://github.com/AlexvZyl/nordic.nvim",
 	"https://github.com/rmehri01/onenord.nvim",
 	-- treesitter
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	-- lsp
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		build = ":TSUpdate",
+	},
+
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
-	-- blink
+	-- completion plugin
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	-- formatter
 	"https://github.com/stevearc/conform.nvim",
@@ -52,184 +58,146 @@ vim.pack.add({
 	"https://github.com/rcarriga/nvim-notify",
 	"https://github.com/MunifTanjim/nui.nvim",
 	"https://github.com/folke/noice.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
-	-- explorer
-	"https://github.com/nvim-neo-tree/neo-tree.nvim",
-	-- status line
-	"https://github.com/nvim-lualine/lualine.nvim",
-	-- buffer line
-	"https://github.com/akinsho/bufferline.nvim",
-	-- keymap list
-	"https://github.com/folke/which-key.nvim",
-	-- fuzzy finder
-	"https://github.com/nvim-telescope/telescope.nvim",
+
+	"https://github.com/nvim-lua/plenary.nvim", -- library dependency
+	"https://github.com/nvim-tree/nvim-web-devicons", -- library dependency
+
+	"https://github.com/nvim-neo-tree/neo-tree.nvim", -- explorer
+	"https://github.com/nvim-lualine/lualine.nvim", -- status line
+	"https://github.com/akinsho/bufferline.nvim", -- buffer line
+	"https://github.com/folke/which-key.nvim", -- key explorer
+	"https://github.com/nvim-telescope/telescope.nvim", -- the fuzzy finder
 })
 
--- =============================================================================
--- SAFE HELPERS
--- =============================================================================
+-----------
+--- Plugin Config
+---------------------------------
 
-local function safe_require(module, setup_fn)
-	local ok, plugin = pcall(require, module)
-	if not ok then
-		vim.notify("Failed to load module: " .. module, vim.log.levels.WARN)
-		return
+-- colorscheme
+vim.cmd("colorscheme onenord")
+
+-- treesitter
+local setup_treesitter = function()
+	local treesitter = require("nvim-treesitter")
+	treesitter.setup({})
+	local ensure_installed = {
+		"rust",
+		"c",
+		"cpp",
+		"go",
+		"html",
+		"css",
+		"javascript",
+		"json",
+		"lua",
+		"markdown",
+		"python",
+		"typescript",
+		"bash",
+		"lua",
+		"python",
+	}
+
+	local config = require("nvim-treesitter.config")
+
+	local already_installed = config.get_installed()
+	local parsers_to_install = {}
+
+	for _, parser in ipairs(ensure_installed) do
+		if not vim.tbl_contains(already_installed, parser) then
+			table.insert(parsers_to_install, parser)
+		end
 	end
-	setup_fn(plugin)
+
+	if #parsers_to_install > 0 then
+		treesitter.install(parsers_to_install)
+	end
+
+	local group = vim.api.nvim_create_augroup("TreeSitterConfig", { clear = true })
+	vim.api.nvim_create_autocmd("FileType", {
+		group = group,
+		callback = function(args)
+			if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match)) then
+				vim.treesitter.start(args.buf)
+			end
+		end,
+	})
 end
 
-local function safe_cmd(cmd, msg)
-	local ok = pcall(vim.cmd, cmd)
-	if not ok then
-		vim.notify(msg or ("Failed to run: " .. cmd), vim.log.levels.WARN)
-	end
-end
+setup_treesitter()
 
--- =============================================================================
--- COLORSCHEME
--- =============================================================================
+-- tree explorer
+require("neo-tree").setup({
+	window = {
+		width = 25,
+	},
+})
 
-safe_cmd("colorscheme onenord", "Colorscheme 'onenord' not found")
-
--- =============================================================================
--- PLUGIN CONFIGS
--- =============================================================================
-
-safe_require("nvim-treesitter.configs", function(ts)
-	ts.setup({
-		ensure_installed = {
-			"rust",
-			"c",
-			"cpp",
-			"go",
-			"html",
-			"css",
-			"javascript",
-			"json",
-			"lua",
-			"markdown",
-			"python",
-			"typescript",
-			"bash",
-		},
-		highlight = { enable = true },
-	})
-end)
-
-safe_require("neo-tree", function(nt)
-	nt.setup({
-		window = { width = 25 },
-		-- enable_git_status = true,
-		-- enable_diagnostics = true,
-		--
-		-- default_component_configs = {
-		-- 	icon = {
-		-- 		enabled = true,
-		-- 	},
-		-- },
-	})
-end)
-
-safe_require("bufferline", function(bl)
-	bl.setup({
-		options = {
-			separator_style = "slant",
-			diagnostics = "nvim_lsp",
-			offsets = {
-				{
-					filetype = "neo-tree",
-					text = "Explorer",
-					highlight = "Directory",
-					text_align = "left",
-				},
-			},
-		},
-	})
-end)
-
-safe_require("lualine", function(ll)
-	ll.setup({
-		options = { globalstatus = true },
-		extensions = { "neo-tree" },
-	})
-end)
-
-safe_require("blink.cmp", function(cmp)
-	cmp.setup({
-		completion = { documentation = { auto_show = true } },
-		keymap = { preset = "enter" },
-		fuzzy = { implementation = "lua" },
-	})
-
-	-- LSP capabilities (cleaned: no double require)
-	vim.lsp.config("*", {
-		capabilities = cmp.get_lsp_capabilities(),
-	})
-end)
-
-safe_require("mason", function(m)
-	m.setup({})
-end)
-
-safe_require("mason-lspconfig", function(ml)
-	ml.setup({
-		ensure_installed = {
-			"lua_ls",
-			"gopls",
-			"pyright",
-			"emmet_language_server",
-			"ts_ls",
-		},
-	})
-end)
-
-safe_require("noice", function(n)
-	n.setup({
-		lsp = { progress = { enabled = false } },
-		presets = {
-			bottom_search = true,
-			command_palette = true,
-			lsp_doc_border = true,
-		},
-	})
-end)
-
-safe_require("conform", function(c)
-	c.setup({
-		formatters_by_ft = {
-			lua = { "stylua" },
-			python = { "isort", "black" },
-			go = { "goimports", "gofmt" },
-			javascript = { "prettierd" },
-			typescript = { "prettierd" },
-		},
-		format_on_save = {
-			lsp_format = "fallback",
-			timeout_ms = 500,
-		},
-	})
-end)
-
-safe_require("telescope", function(t)
-	t.setup({})
-end)
-
-safe_require("which-key", function(wk)
-	wk.setup({
-		spec = {
+-- buffer line
+require("bufferline").setup({
+	options = {
+		separator_style = "slant",
+		diagnostics = "nvim_lsp",
+		offsets = {
 			{
-				"<leader>s",
-				group = "[S]earch",
-				icon = { icon = "", color = "green" },
+				filetype = "neo-tree",
+				text = "Explorer",
+				highlight = "Directory",
+				text_align = "left",
 			},
 		},
-	})
-end)
+	},
+})
 
--- =============================================================================
--- LSP ENABLE (native Neovim 0.11+ style)
--- =============================================================================
+-- lualine
+
+require("lualine").setup({
+	options = {
+		theme = "auto",
+	},
+	extensions = {
+		"neo-tree",
+	},
+})
+
+-- blink completion engine
+
+require("blink.cmp").setup({
+	completion = {
+		documentation = {
+			auto_show = true,
+		},
+	},
+
+	-- default blink keymaps
+	keymap = {
+		preset = "enter",
+	},
+
+	fuzzy = {
+		implementation = "lua",
+	},
+})
+
+local capabilities = {
+	textDocument = {
+		foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
+		},
+	},
+}
+
+capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+
+-- lsp server installation and configuration
+
+vim.lsp.config("*", {
+	capabilities = capabilities,
+})
+
+-- For line with problems, show message at the end of line
+vim.diagnostic.config({ virtual_text = true })
 
 vim.lsp.enable({
 	"clangd",
@@ -240,10 +208,66 @@ vim.lsp.enable({
 	"emmet_language_server",
 })
 
--- =============================================================================
--- KEYMAPS
--- =============================================================================
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = { "lua_ls", "gopls", "pyright", "emmet_language_server", "ts_ls" },
+})
 
+require("noice").setup({
+	lsp = {
+		progress = { enabled = false },
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+		},
+	},
+	presets = {
+		bottom_search = true, -- use a classic bottom cmdline for search
+		command_palette = true, -- position the cmdline and popupmenu together
+		long_message_to_split = true, -- long messages will be sent to a split
+		inc_rename = false, -- enables an input dialog for inc-rename.nvim
+		lsp_doc_border = true, -- add a border to hover docs and signature help
+	},
+})
+
+require("conform").setup({
+	formatters_by_ft = {
+		c = { "clang-format" },
+		cpp = { "clang-format" },
+		lua = { "stylua" },
+		python = { "isort", "black" },
+		go = { "goimports", "gofmt" },
+		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		typescriptreact = { "prettierd" },
+		css = { "prettierd" },
+		html = { "prettierd" },
+		json = { "prettierd" },
+		yaml = { "prettierd" },
+		markdown = { "prettierd" },
+		graphql = { "prettierd" },
+	},
+	format_on_save = {
+		lsp_format = "fallback",
+		async = false,
+		timeout_ms = 500,
+	},
+})
+
+-- INFO: fuzzy finder
+require("telescope").setup({})
+
+-- Which-key: keybinding helper
+require("which-key").setup({
+	spec = {
+		{ "<leader>s", group = "[S]earch", icon = { icon = "", color = "green" } },
+	},
+})
+
+-------------------------------------
+-- keymaps
+-------------------------------------
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", opts)
