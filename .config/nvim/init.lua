@@ -40,13 +40,10 @@ vim.pack.add({
 	"https://github.com/Aejkatappaja/sora",
 	"https://github.com/AlexvZyl/nordic.nvim",
 	"https://github.com/rmehri01/onenord.nvim",
-	-- treesitter
-	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter",
-		branch = "main",
-		build = ":TSUpdate",
-	},
+	-- tree-sitter-manager
+	"https://github.com/romus204/tree-sitter-manager.nvim",
 
+	-- lsp
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
@@ -67,6 +64,7 @@ vim.pack.add({
 	"https://github.com/akinsho/bufferline.nvim", -- buffer line
 	"https://github.com/folke/which-key.nvim", -- key explorer
 	"https://github.com/nvim-telescope/telescope.nvim", -- the fuzzy finder
+	"https://github.com/nvim-mini/mini.pairs", -- brackets autoclosing
 })
 
 -----------
@@ -77,10 +75,8 @@ vim.pack.add({
 vim.cmd("colorscheme onenord")
 
 -- treesitter
-local setup_treesitter = function()
-	local treesitter = require("nvim-treesitter")
-	treesitter.setup({})
-	local ensure_installed = {
+require("tree-sitter-manager").setup({
+	ensure_installed = {
 		"rust",
 		"c",
 		"cpp",
@@ -96,35 +92,9 @@ local setup_treesitter = function()
 		"bash",
 		"lua",
 		"python",
-	}
-
-	local config = require("nvim-treesitter.config")
-
-	local already_installed = config.get_installed()
-	local parsers_to_install = {}
-
-	for _, parser in ipairs(ensure_installed) do
-		if not vim.tbl_contains(already_installed, parser) then
-			table.insert(parsers_to_install, parser)
-		end
-	end
-
-	if #parsers_to_install > 0 then
-		treesitter.install(parsers_to_install)
-	end
-
-	local group = vim.api.nvim_create_augroup("TreeSitterConfig", { clear = true })
-	vim.api.nvim_create_autocmd("FileType", {
-		group = group,
-		callback = function(args)
-			if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match)) then
-				vim.treesitter.start(args.buf)
-			end
-		end,
-	})
-end
-
-setup_treesitter()
+	},
+	highlight = true,
+})
 
 -- tree explorer
 require("neo-tree").setup({
@@ -191,7 +161,6 @@ local capabilities = {
 capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 -- lsp server installation and configuration
-
 vim.lsp.config("*", {
 	capabilities = capabilities,
 })
@@ -265,6 +234,9 @@ require("which-key").setup({
 	},
 })
 
+-- mini-pairs
+require("mini.pairs").setup({})
+
 -------------------------------------
 -- keymaps
 -------------------------------------
@@ -336,23 +308,27 @@ vim.keymap.set("n", "<leader>fm", pickers.man_pages, { desc = "[S]earch [M]anual
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
 	callback = function()
-		local params = vim.lsp.util.make_range_params()
-		params.context = { only = { "source.organizeImports" } }
-		-- buf_request_sync defaults to a 1000ms timeout. Depending on your
-		-- machine and codebase, you may want longer. Add an additional
-		-- argument after params if you find that you have to write the file
-		-- twice for changes to be saved.
-		-- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
-		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
-		for cid, res in pairs(result or {}) do
-			for _, r in pairs(res.result or {}) do
-				if r.edit then
-					local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-					vim.lsp.util.apply_workspace_edit(r.edit, enc)
+		local client = vim.lsp.get_clients({ buf = 0 })[1]
+		if not client then
+			return
+		end
+
+		local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+		params.context = {
+			only = { "source.organizeImports" },
+		}
+
+		vim.lsp.buf_request(0, "textDocument/codeAction", params, function(err, actions)
+			if err then
+				return
+			end
+
+			for _, action in pairs(actions or {}) do
+				if action.edit then
+					vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
 				end
 			end
-		end
-		vim.lsp.buf.format({ async = false })
+		end)
 	end,
 })
 
@@ -360,6 +336,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP actions",
 	callback = function(event)
 		local opts = { buffer = event.buf }
+
+		-- local client = vim.lsp.get_client_by_id(event.data.client_id)
+		-- -- Disable semantic tokens
+		-- client.server_capabilities.semanticTokensProvider = nil
 
 		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 		vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
