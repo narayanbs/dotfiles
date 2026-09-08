@@ -36,9 +36,6 @@ opt.confirm = true
 vim.pack.add({
 
 	-- colorscheme
-	"https://github.com/shawilly/ponokai",
-	"https://github.com/Aejkatappaja/sora",
-	"https://github.com/AlexvZyl/nordic.nvim",
 	"https://github.com/rmehri01/onenord.nvim",
 	-- tree-sitter-manager
 	"https://github.com/romus204/tree-sitter-manager.nvim",
@@ -235,7 +232,12 @@ require("which-key").setup({
 })
 
 -- mini-pairs
-require("mini.pairs").setup({})
+require("mini.pairs").setup({
+	mappings = {
+		['"'] = false,
+		["'"] = false,
+	},
+})
 
 -------------------------------------
 -- keymaps
